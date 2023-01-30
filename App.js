@@ -24,10 +24,17 @@ export default function App() {
         style={styles.textInput}
         placeholder='Your course goal!'
         onChangeText={goalInoutHandler}/>
-        <Button title='Add Goal' onPress={addGoalHanlder}/>
+        <Button 
+        style={styles.goalButton}
+        title='Add Goal' 
+        onPress={addGoalHanlder}/>
       </View>
       <View style={styles.goalContainer}>
-        {courseGoals.map((goal) => <Text style={styles.goalItem} key={goal}>{goal}</Text>)}
+        {courseGoals.map((goal) => 
+        <View style={styles.goalItem} key={goal}>
+          <Text style={styles.goalText}>{goal}</Text>
+        </View>
+        )}
       </View>
     </View>
   );
@@ -55,6 +62,11 @@ const styles = StyleSheet.create({
     marginRight: 8,
     padding: 8
   },
+  goalButton:{
+    tintColor: 'red',
+    borderWidth: 1,
+    borderRadius: 10
+  },
   goalContainer:{
     flex: 5
   },
@@ -62,7 +74,9 @@ const styles = StyleSheet.create({
     margin: 8,
     padding: 8,
     borderRadius: 6,
-    backgroundColor: '#5e0acc',
+    backgroundColor: '#5e0acc'
+  },
+  goalText:{
     color: 'white'
   }
 });
