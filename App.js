@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
+import { Button, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 
 export default function App() {
   const [enteredGoalText, setEneteredGoalText] = useState("");
@@ -30,11 +30,13 @@ export default function App() {
         onPress={addGoalHanlder}/>
       </View>
       <View style={styles.goalContainer}>
+        <ScrollView>
         {courseGoals.map((goal) => 
         <View style={styles.goalItem} key={goal}>
           <Text style={styles.goalText}>{goal}</Text>
         </View>
         )}
+        </ScrollView>
       </View>
     </View>
   );
